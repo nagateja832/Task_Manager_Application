@@ -1,0 +1,62 @@
+<div class="task-form-container">
+  <h2>{{ isEdit ? "Edit Task" : "Create Task" }}</h2>
+  <form (ngSubmit)="onSubmit()" class="task-form">
+    <label for="title">Title:</label>
+    <input
+      id="title"
+      type="text"
+      [(ngModel)]="task.title"
+      name="title"
+      required
+    />
+
+    <label for="description">Description:</label>
+    <textarea
+      id="description"
+      [(ngModel)]="task.description"
+      name="description"
+    ></textarea>
+
+    <label>Status:</label>
+    <div class="status-options">
+      <label>
+        <input
+          type="radio"
+          name="status"
+          [(ngModel)]="task.status"
+          value="pending"
+        />
+        Pending
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="status"
+          [(ngModel)]="task.status"
+          value="inprogress"
+        />
+        In Progress
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="status"
+          [(ngModel)]="task.status"
+          value="completed"
+        />
+        Completed
+      </label>
+    </div>
+
+    <div class="button-group">
+      <button type="submit" class="btn save-btn">Save</button>
+      <button
+        type="button"
+        class="btn cancel-btn"
+        (click)="router.navigate(['/task'])"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

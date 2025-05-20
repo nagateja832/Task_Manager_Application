@@ -1,0 +1,143 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.task-list-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 600px) {
+    margin: 20px 10px;
+    padding: 16px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+
+    h2 {
+      margin: 0;
+      color: #2c3e50;
+    }
+
+    .add-task-btn {
+      padding: 10px 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
+  }
+
+  .task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .task-card {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+      .task-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        margin-bottom: 8px;
+
+        strong {
+          color: #2c3e50;
+
+          &.completed {
+            text-decoration: line-through;
+            color: #95a5a6;
+          }
+        }
+      }
+
+      .description {
+        margin: 0 0 10px 28px;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .task-actions {
+        display: flex;
+        gap: 10px;
+        margin-left: 28px;
+
+        button {
+          padding: 6px 14px;
+          border: none;
+          border-radius: 6px;
+          font-weight: 500;
+          cursor: pointer;
+          font-size: 14px;
+
+          &.edit-btn {
+            background-color: #27ae60;
+            color: white;
+
+            &:hover {
+              background-color: #1e8449;
+            }
+          }
+
+          &.delete-btn {
+            background-color: #e74c3c;
+            color: white;
+
+            &:hover {
+              background-color: #c0392b;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive layout
+  @media (max-width: 600px) {
+    .header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+      text-align: center;
+
+      h2 {
+        width: 100%;
+      }
+
+      .add-task-btn {
+        width: 100%;
+      }
+    }
+
+    .task-list {
+      .task-card {
+        .task-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    }
+  }
+}
